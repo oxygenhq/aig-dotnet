@@ -31,8 +31,23 @@ namespace AIGExample
             EndStep("לחצו כאן למעבר לרכישת ביטוח נסיעות לחול אונליין");
 
             StartStep("האם רכשת בעבר ביטוח נסיעות ");
-            _driver.FindElement(By.Id("BtnNo")).Click();
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromMinutes(1));
+            _driver.FindElement(By.XPath("//button[@id=\"closeBtn\"]")).Click();
+
+            Thread.Sleep(2000);
+
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            try
+            {
+                _driver.FindElement(By.XPath("//button[@id=\"closeBtn\"]")).Click();
+                Thread.Sleep(2000);
+            } 
+            catch (Exception)
+            {
+            }
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+
             EndStep("האם רכשת בעבר ביטוח נסיעות ");
 
             StartStep("אירופה");
