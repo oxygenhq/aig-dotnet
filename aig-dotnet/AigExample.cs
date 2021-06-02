@@ -15,7 +15,7 @@ namespace AIGExample
         public void Links()
         {
             StartStep("דף הבית");
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             _driver.Navigate().GoToUrl("https://www.aig.co.il/");
             _driver.Manage().Window.Maximize();
             EndStep("דף הבית");
@@ -45,7 +45,7 @@ namespace AIGExample
         public void BituahRehev()
         {
             StartStep("דף הבית");
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             _driver.Navigate().GoToUrl("https://www.aig.co.il/");
             _driver.Manage().Window.Maximize();
             EndStep("דף הבית");
@@ -69,7 +69,10 @@ namespace AIGExample
             Thread.Sleep(1000);
             _driver.FindElement(By.Id("img-male")).Click();
             _driver.FindElement(By.Id("insuranceDate_1")).Click();
+            _driver.FindElement(By.Id("firstName")).Click();
             _driver.FindElement(By.Id("firstName")).SendKeys("משה");
+            Thread.Sleep(1500);
+            _driver.FindElement(By.Id("lastName")).Click();
             _driver.FindElement(By.Id("lastName")).SendKeys("זוכמיר");
             EndStep("הזנת פרטים");
 
@@ -96,7 +99,7 @@ namespace AIGExample
             StartStep("כניסה למערכת");
 
             StartStep("דף הבית");
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             _driver.Navigate().GoToUrl("https://www.aig.co.il/");
             _driver.Manage().Window.Maximize();
             EndStep("דף הבית");
